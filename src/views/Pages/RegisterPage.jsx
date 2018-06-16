@@ -13,7 +13,7 @@ import Code from "@material-ui/icons/Code";
 import Group from "@material-ui/icons/Group";
 import Face from "@material-ui/icons/Face";
 import Email from "@material-ui/icons/Email";
-import LockOutline from "@material-ui/icons/LockOutline";
+//import LockOutline from "@material-ui/icons/LockOutline";
 import Check from "@material-ui/icons/Check";
 
 // core components
@@ -27,6 +27,18 @@ import CardBody from "components/Card/CardBody.jsx";
 
 import registerPageStyle from "assets/jss/material-dashboard-pro-react/views/registerPageStyle";
 
+// Sign Up
+import AuthenticationContract from '../../build/contracts/Authentication.json'
+import { loginUser } from '../../views/Pages/LoginPage/LoginButtonActions'
+import store from '../../store'
+import { log } from "util";
+
+
+
+const contract = require( 'truffle-contract')
+
+
+
 class RegisterPage extends React.Component {
   constructor(props) {
     super(props);
@@ -35,6 +47,7 @@ class RegisterPage extends React.Component {
     };
     this.handleToggle = this.handleToggle.bind(this);
   }
+  
   handleToggle(value) {
     const { checked } = this.state;
     const currentIndex = checked.indexOf(value);
@@ -50,6 +63,56 @@ class RegisterPage extends React.Component {
       checked: newChecked
     });
   }
+  
+
+  signUpUser(name) {
+    console.log('signing up...');
+  
+    let web3 = store.getState().web3.web3Instance;
+  
+    // Double-check web3's status.
+    if (typeof web3 !== 'undefined') { 
+
+      return function(dispatch) {
+        console.log("dispatch");
+
+        // Using truffle-contract we create the authentication object.
+        const authentication = contract(AuthenticationContract);
+        authentication.setProvider(web3.currentProvider);
+  
+        // Declaring this for later so we can chain functions on Authentication.
+        var authenticationInstance;
+  
+        // Get current ethereum wallet.
+        web3.eth.getCoinbase((error, coinbase) => {
+          // Log errors, if any.
+          if (error) {
+            console.error(error);
+          }        
+  
+          authentication.deployed().then(function(instance) {
+            authenticationInstance = instance;
+  
+            // Attempt to sign up user.
+            authenticationInstance.signup(name, {from: coinbase})
+            .then(function(result) {
+              // If no error, login user.
+                            
+              return dispatch(loginUser())
+
+            })
+            .catch(function(result) {
+              // If error...
+            })
+          })
+        })
+      }
+    } else {
+      console.error('Web3 is not initialized.');
+    }
+  }
+  
+
   render() {
     const { classes } = this.props;
     return (
@@ -158,7 +221,7 @@ class RegisterPage extends React.Component {
                         }
                       />
                       <div className={classes.center}>
-                        <Button round color="primary">
+                        <Button round color="primary" onClick={() => this.signUpUser('Julius')}>
                           Get started
                         </Button>
                       </div>

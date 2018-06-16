@@ -7,7 +7,15 @@ import indexRoutes from "routes/index.jsx";
 
 import "assets/scss/material-dashboard-pro-react.css?v=1.2.0";
 
+import getWeb3 from 'util/web3/getWeb3'
+
 const hist = createBrowserHistory();
+
+getWeb3.then(results => {
+  console.log('Web3 initialized!')
+}).catch(() => {
+  console.log('Error in web3 initialization.')
+});
 
 ReactDOM.render(
   <Router history={hist}>
