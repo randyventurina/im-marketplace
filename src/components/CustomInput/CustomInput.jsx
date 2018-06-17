@@ -2,7 +2,7 @@ import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
-import Input from "@material-ui/core/Input";
+import  Input from "@material-ui/core/Input";
 import Check from "@material-ui/icons/Check";
 import Clear from "@material-ui/icons/Clear";
 // nodejs library to set properties for components
@@ -23,7 +23,9 @@ function CustomInput({ ...props }) {
     error,
     white,
     inputRootCustomClasses,
-    success
+    success,
+    value,
+    onChange
   } = props;
 
   const labelClasses = classNames({
@@ -77,6 +79,8 @@ function CustomInput({ ...props }) {
           underline: underlineClasses
         }}
         id={id}
+        value={value}
+        onChange={onChange}
         {...inputProps}
       />
       {error ? (
@@ -98,7 +102,9 @@ CustomInput.propTypes = {
   inputRootCustomClasses: PropTypes.string,
   error: PropTypes.bool,
   success: PropTypes.bool,
-  white: PropTypes.bool
+  white: PropTypes.bool,
+  value: PropTypes.string,
+  onChange: PropTypes.func
 };
 
 export default withStyles(customInputStyle)(CustomInput);
