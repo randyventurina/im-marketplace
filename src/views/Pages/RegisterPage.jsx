@@ -32,8 +32,8 @@ class RegisterPage extends React.Component {
     super(props);
     
     this.state = {
-      name: 'randy',
-      email: 'randy.venturina.c@gmail.com',
+      name: '',
+      email: '',
       checked: []
     };
     this.handleToggle = this.handleToggle.bind(this);
@@ -80,8 +80,7 @@ class RegisterPage extends React.Component {
   }   
 
   render() {
-    const { classes } = this.props;
-    const { state } = this.state;
+    const { classes } = this.props; 
  
     return (
       <div className={classes.container}>

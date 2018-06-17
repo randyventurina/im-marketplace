@@ -1,19 +1,27 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { createBrowserHistory } from "history";
-import { Router, Route, Switch } from "react-router-dom";
+//import { Router, Route, Switch } from "react-router-dom";
+//import { Switch } from "react-router-dom";
+import { Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import indexRoutes from "routes/index.jsx";
+import { syncHistoryWithStore } from 'react-router-redux';
+//import { browserHistory } from 'react-router';
+//import { Router, Route,  browserHistory } from 'react-router';
+//import { browserHistory } from 'react-router';
+import indexRoutes from "routes/index.jsx"; 
 
 import "assets/scss/material-dashboard-pro-react.css?v=1.2.0";
 
-import getWeb3 from 'util/web3/getWeb3'
+import getWeb3 from 'util/web3/getWeb3';
 
 // Redux Store
-import store from 'store'
+import store from 'store';
 
+const  browserHistory = createBrowserHistory();
 
-const hist = createBrowserHistory();
+//const history = syncHistoryWithStore(browserHistory, store);
+
 
 getWeb3.then(results => {
   console.log('Web3 initialized!')
@@ -22,15 +30,14 @@ getWeb3.then(results => {
 });
 
 ReactDOM.render(
-  <Provider store={store}>
-  
-  <Router history={hist}>
-    <Switch>
-      {indexRoutes.map((prop, key) => {
-        return <Route path={prop.path} component={prop.component} key={key} />;
-      })}
-    </Switch>
-  </Router>
+  <Provider store={store}>  
+    <Router history={browserHistory}>
+      <Switch>
+        {indexRoutes.map((prop, key) => {
+          return <Route path={prop.path} component={prop.component} key={key} />;
+        })}
+      </Switch>
+    </Router>
   </Provider>,
   document.getElementById("root")
 );

@@ -1,5 +1,5 @@
 import PricingPage from "views/Pages/PricingPage.jsx";
-import LoginPage from "views/Pages/LoginPage.jsx";
+import LoginPageContainer from "views/Pages/LoginPageContainer";
 import RegisterPageContainer from "views/Pages/RegisterPageContainer";
 import LockScreenPage from "views/Pages/LockScreenPage.jsx";
 
@@ -24,7 +24,7 @@ const pagesRoutes = [
     short: "Login",
     mini: "LP",
     icon: Fingerprint,
-    component: LoginPage
+    component: LoginPageContainer
   },
   {
     path: "/pages/pricing-page",

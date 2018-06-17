@@ -8,7 +8,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 // @material-ui/icons
 import Face from "@material-ui/icons/Face";
 import Email from "@material-ui/icons/Email";
-import LockOutline from "@material-ui/icons/LockOutline";
+//import LockOutline from "@material-ui/icons/LockOutline";
 
 // core components
 import GridContainer from "components/Grid/GridContainer.jsx";
@@ -27,9 +27,36 @@ class LoginPage extends React.Component {
     super(props);
     // we use this to make the card to appear after the page has been rendered
     this.state = {
-      cardAnimaton: "cardHidden"
+      cardAnimaton: "cardHidden",
+      name: '',
+      email: ''
     };
   }
+
+  name_onChange(event) {
+    this.setState({ name: event.target.value });
+  }
+
+  email_onChange(event){
+    this.setState({email: event.target.value});
+  }
+
+  signin_onClick(event) {
+    event.preventDefault() 
+
+    if (this.state.name.length < 2)
+    {
+      return alert('Please fill in your name.');
+    }
+
+    if (this.state.email.length < 2)
+    {
+      return alert('Please fill in your name.');
+    }
+
+    this.props.onLoginUserClick(event, this.state.name);
+  }
+
   componentDidMount() {
     // we add a hidden class to the card and after 700 ms we delete it and the transition appears
     setTimeout(
@@ -74,11 +101,16 @@ class LoginPage extends React.Component {
                   </CardHeader>
                   <CardBody>
                     <CustomInput
-                      labelText="First Name.."
+                      labelText="Name.."
                       id="firstname"
                       formControlProps={{
                         fullWidth: true
                       }}
+
+                      value = {this.state.name}
+
+                      onChange = {this.name_onChange.bind(this)}
+
                       inputProps={{
                         endAdornment: (
                           <InputAdornment position="end">
@@ -93,6 +125,11 @@ class LoginPage extends React.Component {
                       formControlProps={{
                         fullWidth: true
                       }}
+
+                      value = {this.state.email}
+
+                      onChange = {this.email_onChange.bind(this)}
+
                       inputProps={{
                         endAdornment: (
                           <InputAdornment position="end">
@@ -100,26 +137,10 @@ class LoginPage extends React.Component {
                           </InputAdornment>
                         )
                       }}
-                    />
-                    <CustomInput
-                      labelText="Password"
-                      id="password"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <LockOutline
-                              className={classes.inputAdornmentIcon}
-                            />
-                          </InputAdornment>
-                        )
-                      }}
-                    />
+                    />                  
                   </CardBody>
                   <CardFooter className={classes.justifyContentCenter}>
-                    <Button color="rose" simple size="lg" block>
+                    <Button color="rose" simple size="lg" onClick={this.signin_onClick.bind(this)} block >
                       Let's Go
                     </Button>
                   </CardFooter>

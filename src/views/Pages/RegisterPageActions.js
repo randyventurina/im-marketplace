@@ -1,5 +1,5 @@
 import AuthenticationContract from 'build/contracts/Authentication.json'
-import { loginUser } from 'views/Pages/LoginPage/LoginButtonActions'
+import { loginUser } from 'views/Pages/LoginPageActions'
 import store from 'store'
 
 const contract = require('truffle-contract');
