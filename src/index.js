@@ -5,7 +5,7 @@ import { createBrowserHistory } from "history";
 //import { Switch } from "react-router-dom";
 import { Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { syncHistoryWithStore } from 'react-router-redux';
+// import { syncHistoryWithStore } from 'react-router-redux';
 //import { browserHistory } from 'react-router';
 //import { Router, Route,  browserHistory } from 'react-router';
 //import { browserHistory } from 'react-router';

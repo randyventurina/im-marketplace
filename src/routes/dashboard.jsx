@@ -22,7 +22,8 @@ import Widgets from "views/Widgets/Widgets.jsx";
 import UserProfile from "views/Pages/UserProfile.jsx";
 import TimelinePage from "views/Pages/Timeline.jsx";
 import RTLSupport from "views/Pages/RTLSupport.jsx";
-
+import CreateTaskPageContainer from "views/Pages/CreateTaskPageContainer";
+import TaskListPageContainer from "views/Pages/TaskListPageContainer";
 import pagesRoutes from "./pages.jsx";
 
 // @material-ui/icons
@@ -126,6 +127,12 @@ var dashRoutes = [
     icon: ContentPaste,
     views: [
       {
+        path: "/forms/create-task",
+        name: "Create Task Page", 
+        mini: "CT", 
+        component: CreateTaskPageContainer
+      },
+      {
         path: "/forms/regular-forms",
         name: "Regular Forms",
         mini: "RF",
@@ -154,11 +161,17 @@ var dashRoutes = [
     icon: GridOn,
     views: [
       {
+        path: "/tables/task-list",
+        name: "Task List",
+        mini: "RT",
+        component: TaskListPageContainer
+      },
+      {
         path: "/tables/regular-tables",
         name: "Regular Tables",
         mini: "RT",
         component: RegularTables
-      },
+      },      
       {
         path: "/tables/extended-tables",
         name: "Extended Tables",

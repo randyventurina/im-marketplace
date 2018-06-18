@@ -193,6 +193,7 @@ var sidebarLinks = [
         mini: "صو",
         component: RegularForms
       },
+      
       {
         path: "/forms/extended-forms",
         name: "أشكال موسعة",

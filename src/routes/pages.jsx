@@ -25,7 +25,7 @@ const pagesRoutes = [
     mini: "LP",
     icon: Fingerprint,
     component: LoginPageContainer
-  },
+  },  
   {
     path: "/pages/pricing-page",
     name: "Pricing Page",

@@ -1,11 +1,11 @@
 import AuthenticationContract from 'build/contracts/Authentication.json'
 //import { browserHistory } from 'react-router'
-import { createBrowserHistory } from "history"; 
+// import { createBrowserHistory } from "history"; 
 import store from 'store'
 
 const contract = require('truffle-contract')
 
-const  browserHistory = createBrowserHistory(); 
+// const  browserHistory = createBrowserHistory(); 
 
 export const USER_LOGGED_IN = 'USER_LOGGED_IN'
 function userLoggedIn(user) {
@@ -66,7 +66,7 @@ export function loginUser(history) {
             // If error, go to signup page.
             console.error('Wallet ' + coinbase + ' does not have an account!')
             console.error(result);
-            return browserHistory.push('/signup')
+            return history.push('/signup')
           })
         })
       })
