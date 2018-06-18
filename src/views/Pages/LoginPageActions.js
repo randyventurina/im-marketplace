@@ -35,6 +35,8 @@ export function loginUser(history) {
         if (error) {
           console.error(error);
         }
+        
+        debugger;
 
         authentication.deployed().then(function(instance) {
           authenticationInstance = instance
@@ -50,7 +52,7 @@ export function loginUser(history) {
 
             // Used a manual redirect here as opposed to a wrapper.
             // This way, once logged in a user can still access the home page.
-            debugger;
+            
             //var currentLocation = browserHistory.getCurrentLocation();
             //var currentLocation = browserHistory.location;
 
@@ -64,9 +66,9 @@ export function loginUser(history) {
           })
           .catch(function(result) {
             // If error, go to signup page.
-            console.error('Wallet ' + coinbase + ' does not have an account!')
+            //console.error('Wallet ' + coinbase + ' does not have an account!')
             console.error(result);
-            return history.push('/signup')
+            return history.push('/signup');
           })
         })
       })

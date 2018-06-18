@@ -13,6 +13,7 @@ export function signUpUser(history, name) {
     return function(dispatch) {
       console.log("debug: dispatch");
       // Using truffle-contract we create the authentication object.
+      debugger;
       const authentication = contract(AuthenticationContract)
       authentication.setProvider(web3.currentProvider)
 

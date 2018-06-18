@@ -9,10 +9,10 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onClick: (event) => {
+    onClick: (event, title, description) => {
       event.preventDefault();
 
-      dispatch(createTask(ownProps.history));
+      dispatch(createTask(ownProps.history, title, description));
     }
   }
 }

@@ -1,17 +1,10 @@
 import React from "react";
 
 // @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-//import FormLabel from "@material-ui/core/FormLabel";
-// import FormControlLabel from "@material-ui/core/FormControlLabel";
-// import Radio from "@material-ui/core/Radio";
-// import Checkbox from "@material-ui/core/Checkbox";
+import withStyles from "@material-ui/core/styles/withStyles"; 
 
 // @material-ui/icons
-import MailOutline from "@material-ui/icons/MailOutline";
-// import Check from "@material-ui/icons/Check";
-// import Contacts from "@material-ui/icons/Contacts";
-// import FiberManualRecord from "@material-ui/icons/FiberManualRecord";
+import MailOutline from "@material-ui/icons/MailOutline"; 
 
 // core components
 import GridContainer from "components/Grid/GridContainer.jsx";
@@ -20,7 +13,7 @@ import CustomInput from "components/CustomInput/CustomInput.jsx";
 import Button from "components/CustomButtons/Button.jsx";
 import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
-// import CardText from "components/Card/CardText.jsx";
+ 
 import CardIcon from "components/Card/CardIcon.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 
@@ -33,11 +26,9 @@ class CreateTaskPage extends React.Component {
       checked: [24, 22],
       selectedValue: null,
       selectedEnabled: "b",
-      title: "",
-      description: ""
-    };
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleChangeEnabled = this.handleChangeEnabled.bind(this);
+      title: "add marketplace",
+      description: "create marketplace and assign"
+    }; 
   }
 
 
@@ -60,10 +51,9 @@ class CreateTaskPage extends React.Component {
     if (this.state.description.length < 10)
     { 
       return alert('Please fill in the task description.');
-    }
-
-    this.props.onClick(event);
-  }     
+    } 
+    this.props.onClick(event, this.state.title, this.state.description);
+  }
   
   render() {
     const { classes } = this.props;
