@@ -37,7 +37,7 @@ export const colony_CreateTask = async (title, description) => {
   // Connect to ColonyNetwork with the adapter!
   const networkClient = new ColonyNetworkClient({ adapter });
   await networkClient.init();
-  debugger;
+
   // Let's deploy a new ERC20 token for our Colony.
   // You could also skip this step and use a pre-existing/deployed contract.
   const tokenAddress = await networkClient.createToken({

@@ -26,8 +26,8 @@ class AcceptTaskPage extends React.Component {
       checked: [24, 22],
       selectedValue: null,
       selectedEnabled: "b",
-      title: "",
-      description: ""
+      title: "add marketplace",
+      description: "create marketplace and assign"
     }; 
   } 
 
