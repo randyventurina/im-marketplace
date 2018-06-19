@@ -1,10 +1,9 @@
 
-
 // Import the prerequisites
 const { providers, Wallet } = require('ethers');
 const { default: EthersAdapter } = require('@colony/colony-js-adapter-ethers');
 const { TrufflepigLoader } = require('@colony/colony-js-contract-loader-http');
- 
+
 // Import the ColonyNetworkClient
 const { default: ColonyNetworkClient } = require('@colony/colony-js-client');
 
@@ -14,11 +13,14 @@ const loader = new TrufflepigLoader();
 // Create a provider for local TestRPC (Ganache)
 //const provider = new providers.JsonRpcProvider('http://localhost:8545/');
 const provider = new providers.JsonRpcProvider('http://206.189.33.215:8545/');
- 
+
+// IPFS
+const IPFS = require('ipfs');
+const node = new IPFS();
 
 // The following methods use Promises
 export const colony_CreateTask = async (title, description) => {
-   
+
   // Get the private key from the first account from the ganache-accounts
   // through trufflepig
   debugger;
@@ -37,13 +39,14 @@ export const colony_CreateTask = async (title, description) => {
   // Connect to ColonyNetwork with the adapter!
   const networkClient = new ColonyNetworkClient({ adapter });
   await networkClient.init();
-  debugger;
+
   // Let's deploy a new ERC20 token for our Colony.
-  // You could also skip this step and use a pre-existing/deployed contract.
+  // You could also skip this step and use a pre-existing/deployed contract.  
   const tokenAddress = await networkClient.createToken({
     name: 'Cool Colony Token',
     symbol: 'COLNY',
   });
+
   console.log('Token address: ' + tokenAddress);
 
   // Create a cool Colony!
@@ -65,17 +68,19 @@ export const colony_CreateTask = async (title, description) => {
   const metaColonyClient = await networkClient.getMetaColonyClient();
   console.log('Meta Colony address: ' + metaColonyClient.contract.address);
 
-  //Tasks
-  const { eventData: { taskId } } = await colonyClient.createTask.send({
-      specificationHash: 'QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy',
-      domainId: 1,
-  });    
+  //Add JSON to IPFS
+  await ipfs_add({
+    title: title,
+    description: description,
+    status: 'NOT_STARTED'
+  }, async function (error, filesAdded) {
+    debugger;
+    //Create Task
+    const { eventData: { taskId } } = await colonyClient.createTask.send({ specificationHash: filesAdded[0].hash, domainId: 1, });
 
-  const task = await colonyClient.getTask.call({ taskId: 1 });
-
-  console.log("New Task ID: " + taskId);
-  console.log(task);
-}; 
+    console.log("New Task ID: " + taskId);
+  });
+};
 
 export const colony_AcceptTask = () => {
   return null;
@@ -83,4 +88,30 @@ export const colony_AcceptTask = () => {
 
 export const colony_CompleteTask = () => {
   return null;
+}
+
+export const ipfs_add = async (json_task, cb) => {
+  debugger;
+
+  json_task = json_task || {
+    id: '1',
+    title: 'test: create ui design',
+    description: 'test: ask randy of sample template for the ui.',
+    status: 'not-started'
+  };
+  
+
+  node.on('ready', () => {
+    console.log("ready");
+
+    node.files.add({
+      content: Buffer.from(JSON.stringify(json_task))
+    }, (err, filesAdded) => {
+      if (err) {
+        return cb(err, null)
+      }
+      console.log('\nAdded file:', filesAdded[0].path, filesAdded[0].hash);
+      cb(err, filesAdded);
+    })
+  })
 }
