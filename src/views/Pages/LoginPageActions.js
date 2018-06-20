@@ -22,12 +22,13 @@ export function loginUser(history) {
   if (typeof web3 !== 'undefined') {
 
     return function(dispatch) {
+      debugger;
       // Using truffle-contract we create the authentication object.
-      const authentication = contract(AuthenticationContract)
-      authentication.setProvider(web3.currentProvider)
+      const authentication = contract(AuthenticationContract);
+      authentication.setProvider(web3.currentProvider);
 
       // Declaring this for later so we can chain functions on Authentication.
-      var authenticationInstance
+      var authenticationInstance;
 
       // Get current ethereum wallet.
       web3.eth.getCoinbase((error, coinbase) => {
@@ -35,38 +36,26 @@ export function loginUser(history) {
         if (error) {
           console.error(error);
         }
-        
-        debugger;
-
+         
         authentication.deployed().then(function(instance) {
-          authenticationInstance = instance
+          authenticationInstance = instance;
 
           // Attempt to login user.
-          authenticationInstance.login({from: coinbase})
+          authenticationInstance
+          .login({from: coinbase})
           .then(function(result) {
             
             // If no error, login user.
             var userName = web3.toUtf8(result)
+            debugger;
+            //get my current metamask address 
+            dispatch(userLoggedIn({name: userName, user_address: my_address}));
 
-            dispatch(userLoggedIn({"name": userName}))
-
-            // Used a manual redirect here as opposed to a wrapper.
-            // This way, once logged in a user can still access the home page.
-            
-            //var currentLocation = browserHistory.getCurrentLocation();
-            //var currentLocation = browserHistory.location;
-
-            // if ('redirect' in currentLocation.query)
-            // {
-            //   return browserHistory.push(decodeURIComponent(currentLocation.query.redirect));
-            // }
-                        
-            //return browserHistory.push('/dashboard');
             return history.push('/dashboard');
           })
           .catch(function(result) {
-            // If error, go to signup page.
-            //console.error('Wallet ' + coinbase + ' does not have an account!')
+            // If error, go to signup page. 
+            debugger;
             console.error(result);
             return history.push('/signup');
           })

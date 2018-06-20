@@ -10,28 +10,28 @@ export function signUpUser(history, name) {
   // Double-check web3's status.
   if (typeof web3 !== 'undefined') {
 
-    return function(dispatch) {
-      console.log("debug: dispatch");
-      // Using truffle-contract we create the authentication object.
-      debugger;
-      const authentication = contract(AuthenticationContract)
-      authentication.setProvider(web3.currentProvider)
+    return function(dispatch) { 
+      // Using truffle-contract we create the authentication object.     
+      const authentication = contract(AuthenticationContract);
+      authentication.setProvider(web3.currentProvider);
 
       // Declaring this for later so we can chain functions on Authentication.
-      var authenticationInstance
+      var authenticationInstance;
 
       // Get current ethereum wallet.
       web3.eth.getCoinbase((error, coinbase) => {
+        debugger;
         // Log errors, if any.
         if (error) {
           console.error(error);
         }
 
         authentication.deployed().then(function(instance) {
-          authenticationInstance = instance
+          authenticationInstance = instance;
 
           // Attempt to sign up user.
-          authenticationInstance.signup(name, {from: coinbase})
+          authenticationInstance
+          .signup(name, {from: coinbase})
           .then(function(result) {
             // If no error, login user.
             return dispatch(loginUser(history))

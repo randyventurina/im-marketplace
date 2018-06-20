@@ -1,0 +1,4720 @@
+{
+  "contractName": "IReputationMiningCycle",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "round",
+          "type": "uint256"
+        },
+        {
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "disputeRounds",
+      "outputs": [
+        {
+          "name": "proposedNewRootHash",
+          "type": "bytes32"
+        },
+        {
+          "name": "nNodes",
+          "type": "uint256"
+        },
+        {
+          "name": "lastResponseTimestamp",
+          "type": "uint256"
+        },
+        {
+          "name": "challengeStepCompleted",
+          "type": "uint256"
+        },
+        {
+          "name": "jrh",
+          "type": "bytes32"
+        },
+        {
+          "name": "intermediateReputationHash",
+          "type": "bytes32"
+        },
+        {
+          "name": "intermediateReputationNNodes",
+          "type": "uint256"
+        },
+        {
+          "name": "jrhNnodes",
+          "type": "uint256"
+        },
+        {
+          "name": "lowerBound",
+          "type": "uint256"
+        },
+        {
+          "name": "upperBound",
+          "type": "uint256"
+        },
+        {
+          "name": "providedPreviousReputationUID",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "submitter",
+          "type": "address"
+        },
+        {
+          "name": "entryIndex",
+          "type": "uint256"
+        },
+        {
+          "name": "newHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getEntryHash",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "resetWindow",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newHash",
+          "type": "bytes32"
+        },
+        {
+          "name": "nNodes",
+          "type": "uint256"
+        },
+        {
+          "name": "entryIndex",
+          "type": "uint256"
+        }
+      ],
+      "name": "submitRootHash",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "roundNumber",
+          "type": "uint256"
+        }
+      ],
+      "name": "confirmNewHash",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "round",
+          "type": "uint256"
+        },
+        {
+          "name": "idx",
+          "type": "uint256"
+        }
+      ],
+      "name": "invalidateHash",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "round",
+          "type": "uint256"
+        },
+        {
+          "name": "idx",
+          "type": "uint256"
+        },
+        {
+          "name": "jhIntermediateValue",
+          "type": "bytes"
+        },
+        {
+          "name": "branchMask",
+          "type": "uint256"
+        },
+        {
+          "name": "siblings",
+          "type": "bytes32[]"
+        }
+      ],
+      "name": "respondToBinarySearchForChallenge",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "u",
+          "type": "uint256[9]"
+        },
+        {
+          "name": "_reputationKey",
+          "type": "bytes"
+        },
+        {
+          "name": "reputationSiblings",
+          "type": "bytes32[]"
+        },
+        {
+          "name": "agreeStateReputationValue",
+          "type": "bytes"
+        },
+        {
+          "name": "agreeStateSiblings",
+          "type": "bytes32[]"
+        },
+        {
+          "name": "disagreeStateReputationValue",
+          "type": "bytes"
+        },
+        {
+          "name": "disagreeStateSiblings",
+          "type": "bytes32[]"
+        },
+        {
+          "name": "previousNewReputationKey",
+          "type": "bytes"
+        },
+        {
+          "name": "previousNewReputationValue",
+          "type": "bytes"
+        },
+        {
+          "name": "previousNewReputationSiblings",
+          "type": "bytes32[]"
+        }
+      ],
+      "name": "respondToChallenge",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "round",
+          "type": "uint256"
+        },
+        {
+          "name": "index",
+          "type": "uint256"
+        },
+        {
+          "name": "jrh",
+          "type": "bytes32"
+        },
+        {
+          "name": "branchMask1",
+          "type": "uint256"
+        },
+        {
+          "name": "siblings1",
+          "type": "bytes32[]"
+        },
+        {
+          "name": "branchMask2",
+          "type": "uint256"
+        },
+        {
+          "name": "siblings2",
+          "type": "bytes32[]"
+        }
+      ],
+      "name": "submitJustificationRootHash",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_user",
+          "type": "address"
+        },
+        {
+          "name": "_amount",
+          "type": "int256"
+        },
+        {
+          "name": "_skillId",
+          "type": "uint256"
+        },
+        {
+          "name": "_colonyAddress",
+          "type": "address"
+        },
+        {
+          "name": "_nParents",
+          "type": "uint256"
+        },
+        {
+          "name": "_nChildren",
+          "type": "uint256"
+        }
+      ],
+      "name": "appendReputationUpdateLog",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getReputationUpdateLogLength",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "getReputationUpdateLogEntry",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        },
+        {
+          "name": "",
+          "type": "int256"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "name": "",
+          "type": "address"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "stakers",
+          "type": "address[]"
+        },
+        {
+          "name": "commonColonyAddress",
+          "type": "address"
+        },
+        {
+          "name": "reward",
+          "type": "uint256"
+        }
+      ],
+      "name": "rewardStakersWithReputation",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "/*\n  This file is part of The Colony Network.\n\n  The Colony Network is free software: you can redistribute it and/or modify\n  it under the terms of the GNU General Public License as published by\n  the Free Software Foundation, either version 3 of the License, or\n  (at your option) any later version.\n\n  The Colony Network is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n  GNU General Public License for more details.\n\n  You should have received a copy of the GNU General Public License\n  along with The Colony Network. If not, see <http://www.gnu.org/licenses/>.\n*/\n\npragma solidity ^0.4.23;\npragma experimental \"v0.5.0\";\n\n\ncontract IReputationMiningCycle {\n\n  /// @notice The getter generated by solidity for the disputeRounds mapping of array of dispute rounds.\n  /// @param round The dispute round to query\n  /// @param index The index in the dispute round to query\n  /// @return The elements of the Submission struct for the submission requested. See ReputationMiningCycle.sol for the full description\n  function disputeRounds(uint256 round, uint256 index) public view returns (bytes32 proposedNewRootHash, uint256 nNodes, uint256 lastResponseTimestamp, uint256 challengeStepCompleted, bytes32 jrh, bytes32 intermediateReputationHash, uint256 intermediateReputationNNodes, uint256 jrhNnodes, uint256 lowerBound, uint256 upperBound, uint256 providedPreviousReputationUID);\n\n  /// @notice Get the hash for the corresponding entry.\n  /// @param submitter The address that submitted the hash\n  /// @param entryIndex The index of the entry that they used to submit the hash\n  /// @param newHash The hash that they submitted\n  function getEntryHash(address submitter, uint256 entryIndex, bytes32 newHash) public pure returns (bytes32);\n\n  /// @notice Resets the timestamp that the submission window opens to `now`\n  /// @dev only allowed to be called by ColonyNetwork\n  function resetWindow() public;\n\n  /// @notice Submit a new reputation root hash\n  /// @param newHash The proposed new reputation root hash\n  /// @param nNodes Number of nodes in tree with root `newHash`\n  /// @param entryIndex The entry number for the given `newHash` and `nNodes`\n  function submitRootHash(bytes32 newHash, uint256 nNodes, uint256 entryIndex) public;\n\n  /// @notice Confirm a new reputation hash. The hash in question is either the only one that was submitted this cycle,\n  /// or the last one standing after all others have been proved wrong.\n  /// @param roundNumber The round number that the hash being confirmed is in as the only contendender. If only one hash was submitted, then this is zero.\n  function confirmNewHash(uint256 roundNumber) public;\n\n  /// @notice Invalidate a hash that has timed out relative to its opponent its current challenge step. Note that this can be called to 'invalidate'\n  /// a nonexistent hash, if the round has an odd number of entrants and so the last hash is being given a bye to the next round.\n  /// @param round The round number the hash being invalidated is in\n  /// @param idx The index in the round that the hash being invalidated is in\n  function invalidateHash(uint256 round, uint256 idx) public;\n\n  /// @notice Respond to a binary search step, to eventually discover where two submitted hashes differ in their Justification trees.\n  /// @param round The round number the hash we are responding on behalf of is in\n  /// @param idx The index in the round that the hash we are responding on behalf of is in\n  /// @param jhIntermediateValue The contents of the Justification Tree at the key given by `targetNode` (see function description). The value of `targetNode` is computed locally to establish what to submit to this function.\n  /// @param branchMask The branchMask of the Merkle proof that `jhIntermediateValue` is the value at key `targetNode`\n  /// @param siblings The siblings of the Merkle proof that `jhIntermediateValue` is the value at key `targetNode`\n  function respondToBinarySearchForChallenge(uint256 round, uint256 idx, bytes jhIntermediateValue, uint branchMask, bytes32[] siblings) public;\n\n  /// @notice Respond to challenge, to establish which (if either) of the two submissions facing off are correct.\n  /// @param u A `uint256[9]` array. The elements of this array, in order are:\n  /// * 1. The current round of the hash being responded on behalf of\n  /// * 2. The current index in the round of the hash being responded on behalf of\n  /// * 3. The branchMask of the proof that the reputation is in the reputation state tree for the reputation with the disputed change\n  /// * 4. The number of nodes in the last reputation state that both submitted hashes agree on\n  /// * 5. The branchMask of the proof that the last reputation state the submitted hashes agreed on is in this submitted hash's justification tree\n  /// * 6. The number of nodes this hash considers to be present in the first reputation state the two hashes in this challenge disagree on\n  /// * 7. The branchMask of the proof that reputation root hash of the first reputation state the two hashes in this challenge disagree on is in this submitted hash's justification tree\n  /// * 8. The branchMask of the proof for the most recently added reputation state in this hash's state tree in the last reputation state the two hashes in this challenge agreed on\n  /// * 9. A dummy variable that should be set to 0. If nonzero, transaction will still work but be slightly more expensive. For an explanation of why this is present, look at the corresponding solidity code.\n  /// @param _reputationKey The key of the reputation being changed that the disagreement is over.\n  /// @param reputationSiblings The siblings of the Merkle proof that the reputation corresponding to `_reputationKey` is in the reputation state before and after the disagreement\n  /// @param agreeStateReputationValue The value of the reputation at key `_reputationKey` in the last reputation state the submitted hashes agreed on\n  /// @param agreeStateSiblings The siblings of the Merkle proof that the last reputation state the submitted hashes agreed on is in this submitted hash's justification tree\n  /// @param disagreeStateReputationValue The value of the reputation at key `_reputationKey` in the first reputation state the submitted hashes disagree on\n  /// @param disagreeStateSiblings The siblings of the Merkle proof that the first reputation state the submitted hashes disagreed on is in this submitted hash's justification tree\n  /// @param previousNewReputationKey The key of the newest reputation added to the reputation tree in the last reputation state the submitted hashes agree on\n  /// @param previousNewReputationValue The value of the newest reputation added to the reputation tree in the last reputation state the submitted hashes agree on\n  /// @param previousNewReputationSiblings The siblings of the Merkle proof of the newest reputation added to the reputation tree in the last reputation state the submitted hashes agree on\n  /// @dev If you know that the disagreement doesn't involve a new reputation being added, the arguments corresponding to the previous new reputation can be zeroed, as they will not be used. You must be sure\n  /// that this is the case, however, otherwise you risk being found incorrect. Zeroed arguments will result in a cheaper call to this function.\n  function respondToChallenge(\n    uint256[9] u, //An array of 9 UINT Params, ordered as given above.\n    bytes _reputationKey,\n    bytes32[] reputationSiblings,\n    bytes agreeStateReputationValue,\n    bytes32[] agreeStateSiblings,\n    bytes disagreeStateReputationValue,\n    bytes32[] disagreeStateSiblings,\n    bytes previousNewReputationKey,\n    bytes previousNewReputationValue,\n    bytes32[] previousNewReputationSiblings) public;\n\n  /// @notice Submit the Justification Root Hash (JRH) for a submitted reputation hash.\n  /// @param round The round that the hash is currently in.\n  /// @param index The index in the round that the hash is currently in\n  /// @param jrh The JRH being submitted\n  /// @param branchMask1 The branchmask for the Merkle proof that the currently accepted reputation state (given by `ColonyNetwork.getReputationRootHash()` + `ColonyNetwork.getReputationRootHashNNodes()`, where `+` is concatenation) is at key 0x000..000 in the submitted JRH\n  /// @param siblings1 The siblings for the same Merkle proof\n  /// @param branchMask2 The branchmask for the Merkle proof that the proposed new reputation state is at the key corresponding to the number of transactions expected in this update in the submitted JRH. This key should be the number of decay transactions plus the number of transactions the log indicates are to happen.\n  /// @param siblings2 The siblings for the same Merkle proof\n  /// @dev The majority of calls to this function will have `round` equal to `0`. The exception to this is when a submitted hash is given a bye, in which case `round` will be nonzero.\n  /// @dev Note that it is possible for this function to be required to be called in every round - the hash getting the bye can wait until they will also be awarded the bye in the next round, if\n  /// one is going to exist. There is an incentive to do so from a gas-cost perspective, but they don't know for sure there's going to be a bye until the submission window has expired, so I think\n  /// this is okay.\n  function submitJustificationRootHash(\n    uint256 round,\n    uint256 index,\n    bytes32 jrh,\n    uint branchMask1,\n    bytes32[] siblings1,\n    uint branchMask2,\n    bytes32[] siblings2) public;\n\n  /// @notice Add a new entry to the reputation update log\n  /// @param _user The address of the user having their reputation changed by this log entry\n  /// @param _amount The amount by which the user's reputation is going to change. Can be positive or negative\n  /// @param _skillId The skillId of the reputation being affected\n  /// @param _colonyAddress The address of the colony the reputation is being affected in\n  /// @param _nParents The number of parent skills the skill defined by the skillId has\n  /// @param _nChildren The number of child skills the skill defined by the skillId has\n  function appendReputationUpdateLog(address _user, int _amount, uint _skillId, address _colonyAddress, uint _nParents, uint _nChildren) public;\n\n  /// @notice Get the length of the ReputationUpdateLog stored on this instance of the ReputationMiningCycle contract\n  /// @return nUpdates\n  function getReputationUpdateLogLength() public view returns (uint);\n\n  /// @notice Get the `ReputationLogEntry` at index `_id`\n  /// @param _id The reputation log members array index of the entry to get\n  /// @return user The address of the user having their reputation changed by this log entry\n  /// @return amount The amount by which the user's reputation is going to change\n  /// @return skillId The skillId of the reputation being affected\n  /// @return colony The address of the colony the reputation is being affected in\n  /// @return nUpdates The number of updates this log entry implies (including updates to parents, children and colony-wide totals thereof)\n  /// @return nPreviousUpdates The number of updates all previous entries in the log imply (including reputation decays, updates to parents, children, and colony-wide totals thereof)\n  function getReputationUpdateLogEntry(uint256 _id) public view returns (address, int256, uint256, address, uint256, uint256);\n\n  /// @notice Start the reputation log with the rewards for the stakers who backed the accepted new reputation root hash.\n  /// @param stakers The array of stakers addresses to receive the reward.\n  /// @param commonColonyAddress The address of the common colony, which the special mining skill is earned in\n  /// @param reward The amount of reputation to be rewarded to each staker\n  /// @dev Only callable by colonyNetwork\n  /// @dev Note that the same address might be present multiple times in `stakers` - this is acceptable, and indicates the\n  /// same address backed the same hash multiple times with different entries.\n  function rewardStakersWithReputation(address[] stakers, address commonColonyAddress, uint reward) public;\n}\n",
+  "sourcePath": "/root/intuition-machine/colonyNetwork/contracts/IReputationMiningCycle.sol",
+  "ast": {
+    "absolutePath": "/root/intuition-machine/colonyNetwork/contracts/IReputationMiningCycle.sol",
+    "exportedSymbols": {
+      "IReputationMiningCycle": [
+        6153
+      ]
+    },
+    "id": 6154,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 5978,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".23"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "700:24:14"
+      },
+      {
+        "id": 5979,
+        "literals": [
+          "experimental",
+          "v0.5.0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "725:29:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 6153,
+        "linearizedBaseContracts": [
+          6153
+        ],
+        "name": "IReputationMiningCycle",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": "@notice The getter generated by solidity for the disputeRounds mapping of array of dispute rounds.\n @param round The dispute round to query\n @param index The index in the dispute round to query\n @return The elements of the Submission struct for the submission requested. See ReputationMiningCycle.sol for the full description",
+            "id": 6008,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "disputeRounds",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5984,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5981,
+                  "name": "round",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1164:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5980,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1164:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5983,
+                  "name": "index",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1179:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5982,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1179:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1163:30:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6007,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5986,
+                  "name": "proposedNewRootHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1215:27:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 5985,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1215:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5988,
+                  "name": "nNodes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1244:14:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5987,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1244:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5990,
+                  "name": "lastResponseTimestamp",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1260:29:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5989,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1260:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5992,
+                  "name": "challengeStepCompleted",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1291:30:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5991,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1291:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5994,
+                  "name": "jrh",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1323:11:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 5993,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1323:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5996,
+                  "name": "intermediateReputationHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1336:34:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 5995,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1336:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5998,
+                  "name": "intermediateReputationNNodes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1372:36:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5997,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1372:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6000,
+                  "name": "jrhNnodes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1410:17:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5999,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1410:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6002,
+                  "name": "lowerBound",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1429:18:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6001,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1429:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6004,
+                  "name": "upperBound",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1449:18:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6003,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1449:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6006,
+                  "name": "providedPreviousReputationUID",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1469:37:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6005,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1469:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1214:293:14"
+            },
+            "scope": 6153,
+            "src": "1141:367:14",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Get the hash for the corresponding entry.\n @param submitter The address that submitted the hash\n @param entryIndex The index of the entry that they used to submit the hash\n @param newHash The hash that they submitted",
+            "id": 6019,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getEntryHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6015,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6010,
+                  "name": "submitter",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6019,
+                  "src": "1780:17:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 6009,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1780:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6012,
+                  "name": "entryIndex",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6019,
+                  "src": "1799:18:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6011,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1799:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6014,
+                  "name": "newHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6019,
+                  "src": "1819:15:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 6013,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1819:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1779:56:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6018,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6017,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6019,
+                  "src": "1857:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 6016,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1857:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1856:9:14"
+            },
+            "scope": 6153,
+            "src": "1758:108:14",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Resets the timestamp that the submission window opens to `now`\n @dev only allowed to be called by ColonyNetwork",
+            "id": 6022,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "resetWindow",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6020,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2021:2:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6021,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2030:0:14"
+            },
+            "scope": 6153,
+            "src": "2001:30:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Submit a new reputation root hash\n @param newHash The proposed new reputation root hash\n @param nNodes Number of nodes in tree with root `newHash`\n @param entryIndex The entry number for the given `newHash` and `nNodes`",
+            "id": 6031,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "submitRootHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6029,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6024,
+                  "name": "newHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6031,
+                  "src": "2308:15:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 6023,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2308:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6026,
+                  "name": "nNodes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6031,
+                  "src": "2325:14:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6025,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2325:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6028,
+                  "name": "entryIndex",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6031,
+                  "src": "2341:18:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6027,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2341:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2307:53:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6030,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2367:0:14"
+            },
+            "scope": 6153,
+            "src": "2284:84:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Confirm a new reputation hash. The hash in question is either the only one that was submitted this cycle,\n or the last one standing after all others have been proved wrong.\n @param roundNumber The round number that the hash being confirmed is in as the only contendender. If only one hash was submitted, then this is zero.",
+            "id": 6036,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "confirmNewHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6034,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6033,
+                  "name": "roundNumber",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6036,
+                  "src": "2743:19:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6032,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2743:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2742:21:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6035,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2770:0:14"
+            },
+            "scope": 6153,
+            "src": "2719:52:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Invalidate a hash that has timed out relative to its opponent its current challenge step. Note that this can be called to 'invalidate'\n a nonexistent hash, if the round has an odd number of entrants and so the last hash is being given a bye to the next round.\n @param round The round number the hash being invalidated is in\n @param idx The index in the round that the hash being invalidated is in",
+            "id": 6043,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "invalidateHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6041,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6038,
+                  "name": "round",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6043,
+                  "src": "3225:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6037,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3225:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6040,
+                  "name": "idx",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6043,
+                  "src": "3240:11:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6039,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3240:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3224:28:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6042,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3259:0:14"
+            },
+            "scope": 6153,
+            "src": "3201:59:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Respond to a binary search step, to eventually discover where two submitted hashes differ in their Justification trees.\n @param round The round number the hash we are responding on behalf of is in\n @param idx The index in the round that the hash we are responding on behalf of is in\n @param jhIntermediateValue The contents of the Justification Tree at the key given by `targetNode` (see function description). The value of `targetNode` is computed locally to establish what to submit to this function.\n @param branchMask The branchMask of the Merkle proof that `jhIntermediateValue` is the value at key `targetNode`\n @param siblings The siblings of the Merkle proof that `jhIntermediateValue` is the value at key `targetNode`",
+            "id": 6057,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "respondToBinarySearchForChallenge",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6055,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6045,
+                  "name": "round",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6057,
+                  "src": "4073:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6044,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4073:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6047,
+                  "name": "idx",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6057,
+                  "src": "4088:11:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6046,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4088:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6049,
+                  "name": "jhIntermediateValue",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6057,
+                  "src": "4101:25:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 6048,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4101:5:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6051,
+                  "name": "branchMask",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6057,
+                  "src": "4128:15:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6050,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4128:4:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6054,
+                  "name": "siblings",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6057,
+                  "src": "4145:18:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 6052,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "4145:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 6053,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "4145:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4072:92:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6056,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4171:0:14"
+            },
+            "scope": 6153,
+            "src": "4030:142:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Respond to challenge, to establish which (if either) of the two submissions facing off are correct.\n @param u A `uint256[9]` array. The elements of this array, in order are:\n * 1. The current round of the hash being responded on behalf of\n * 2. The current index in the round of the hash being responded on behalf of\n * 3. The branchMask of the proof that the reputation is in the reputation state tree for the reputation with the disputed change\n * 4. The number of nodes in the last reputation state that both submitted hashes agree on\n * 5. The branchMask of the proof that the last reputation state the submitted hashes agreed on is in this submitted hash's justification tree\n * 6. The number of nodes this hash considers to be present in the first reputation state the two hashes in this challenge disagree on\n * 7. The branchMask of the proof that reputation root hash of the first reputation state the two hashes in this challenge disagree on is in this submitted hash's justification tree\n * 8. The branchMask of the proof for the most recently added reputation state in this hash's state tree in the last reputation state the two hashes in this challenge agreed on\n * 9. A dummy variable that should be set to 0. If nonzero, transaction will still work but be slightly more expensive. For an explanation of why this is present, look at the corresponding solidity code.\n @param _reputationKey The key of the reputation being changed that the disagreement is over.\n @param reputationSiblings The siblings of the Merkle proof that the reputation corresponding to `_reputationKey` is in the reputation state before and after the disagreement\n @param agreeStateReputationValue The value of the reputation at key `_reputationKey` in the last reputation state the submitted hashes agreed on\n @param agreeStateSiblings The siblings of the Merkle proof that the last reputation state the submitted hashes agreed on is in this submitted hash's justification tree\n @param disagreeStateReputationValue The value of the reputation at key `_reputationKey` in the first reputation state the submitted hashes disagree on\n @param disagreeStateSiblings The siblings of the Merkle proof that the first reputation state the submitted hashes disagreed on is in this submitted hash's justification tree\n @param previousNewReputationKey The key of the newest reputation added to the reputation tree in the last reputation state the submitted hashes agree on\n @param previousNewReputationValue The value of the newest reputation added to the reputation tree in the last reputation state the submitted hashes agree on\n @param previousNewReputationSiblings The siblings of the Merkle proof of the newest reputation added to the reputation tree in the last reputation state the submitted hashes agree on\n @dev If you know that the disagreement doesn't involve a new reputation being added, the arguments corresponding to the previous new reputation can be zeroed, as they will not be used. You must be sure\n that this is the case, however, otherwise you risk being found incorrect. Zeroed arguments will result in a cheaper call to this function.",
+            "id": 6086,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "respondToChallenge",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6084,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6061,
+                  "name": "u",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6086,
+                  "src": "7458:12:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$9_memory_ptr",
+                    "typeString": "uint256[9]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 6058,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "7458:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 6060,
+                    "length": {
+                      "argumentTypes": null,
+                      "hexValue": "39",
+                      "id": 6059,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "7466:1:14",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": null,
+                        "typeString": null
+                      },
+                      "value": "9"
+                    },
+                    "nodeType": "ArrayTypeName",
+                    "src": "7458:10:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$9_storage_ptr",
+                      "typeString": "uint256[9]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6063,
+                  "name": "_reputationKey",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6086,
+                  "src": "7529:20:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 6062,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "7529:5:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6066,
+                  "name": "reputationSiblings",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6086,
+                  "src": "7555:28:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 6064,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "7555:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 6065,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "7555:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6068,
+                  "name": "agreeStateReputationValue",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6086,
+                  "src": "7589:31:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 6067,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "7589:5:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6071,
+                  "name": "agreeStateSiblings",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6086,
+                  "src": "7626:28:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 6069,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "7626:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 6070,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "7626:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6073,
+                  "name": "disagreeStateReputationValue",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6086,
+                  "src": "7660:34:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 6072,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "7660:5:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6076,
+                  "name": "disagreeStateSiblings",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6086,
+                  "src": "7700:31:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 6074,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "7700:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 6075,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "7700:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6078,
+                  "name": "previousNewReputationKey",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6086,
+                  "src": "7737:30:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 6077,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "7737:5:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6080,
+                  "name": "previousNewReputationValue",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6086,
+                  "src": "7773:32:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 6079,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "7773:5:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6083,
+                  "name": "previousNewReputationSiblings",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6086,
+                  "src": "7811:39:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 6081,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "7811:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 6082,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "7811:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "7452:399:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6085,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "7858:0:14"
+            },
+            "scope": 6153,
+            "src": "7425:434:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Submit the Justification Root Hash (JRH) for a submitted reputation hash.\n @param round The round that the hash is currently in.\n @param index The index in the round that the hash is currently in\n @param jrh The JRH being submitted\n @param branchMask1 The branchmask for the Merkle proof that the currently accepted reputation state (given by `ColonyNetwork.getReputationRootHash()` + `ColonyNetwork.getReputationRootHashNNodes()`, where `+` is concatenation) is at key 0x000..000 in the submitted JRH\n @param siblings1 The siblings for the same Merkle proof\n @param branchMask2 The branchmask for the Merkle proof that the proposed new reputation state is at the key corresponding to the number of transactions expected in this update in the submitted JRH. This key should be the number of decay transactions plus the number of transactions the log indicates are to happen.\n @param siblings2 The siblings for the same Merkle proof\n @dev The majority of calls to this function will have `round` equal to `0`. The exception to this is when a submitted hash is given a bye, in which case `round` will be nonzero.\n @dev Note that it is possible for this function to be required to be called in every round - the hash getting the bye can wait until they will also be awarded the bye in the next round, if\n one is going to exist. There is an incentive to do so from a gas-cost perspective, but they don't know for sure there's going to be a bye until the submission window has expired, so I think\n this is okay.",
+            "id": 6105,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "submitJustificationRootHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6103,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6088,
+                  "name": "round",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6105,
+                  "src": "9481:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6087,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "9481:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6090,
+                  "name": "index",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6105,
+                  "src": "9500:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6089,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "9500:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6092,
+                  "name": "jrh",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6105,
+                  "src": "9519:11:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 6091,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "9519:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6094,
+                  "name": "branchMask1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6105,
+                  "src": "9536:16:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6093,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "9536:4:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6097,
+                  "name": "siblings1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6105,
+                  "src": "9558:19:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 6095,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "9558:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 6096,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "9558:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6099,
+                  "name": "branchMask2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6105,
+                  "src": "9583:16:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6098,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "9583:4:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6102,
+                  "name": "siblings2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6105,
+                  "src": "9605:19:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 6100,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "9605:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 6101,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "9605:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "9475:150:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6104,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "9632:0:14"
+            },
+            "scope": 6153,
+            "src": "9439:194:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Add a new entry to the reputation update log\n @param _user The address of the user having their reputation changed by this log entry\n @param _amount The amount by which the user's reputation is going to change. Can be positive or negative\n @param _skillId The skillId of the reputation being affected\n @param _colonyAddress The address of the colony the reputation is being affected in\n @param _nParents The number of parent skills the skill defined by the skillId has\n @param _nChildren The number of child skills the skill defined by the skillId has",
+            "id": 6120,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "appendReputationUpdateLog",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6118,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6107,
+                  "name": "_user",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6120,
+                  "src": "10268:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 6106,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "10268:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6109,
+                  "name": "_amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6120,
+                  "src": "10283:11:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int256",
+                    "typeString": "int256"
+                  },
+                  "typeName": {
+                    "id": 6108,
+                    "name": "int",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "10283:3:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_int256",
+                      "typeString": "int256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6111,
+                  "name": "_skillId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6120,
+                  "src": "10296:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6110,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "10296:4:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6113,
+                  "name": "_colonyAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6120,
+                  "src": "10311:22:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 6112,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "10311:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6115,
+                  "name": "_nParents",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6120,
+                  "src": "10335:14:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6114,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "10335:4:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6117,
+                  "name": "_nChildren",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6120,
+                  "src": "10351:15:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6116,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "10351:4:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "10267:100:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6119,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "10374:0:14"
+            },
+            "scope": 6153,
+            "src": "10233:142:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Get the length of the ReputationUpdateLog stored on this instance of the ReputationMiningCycle contract\n @return nUpdates",
+            "id": 6125,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getReputationUpdateLogLength",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6121,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "10557:2:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6124,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6123,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6125,
+                  "src": "10581:4:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6122,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "10581:4:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "10580:6:14"
+            },
+            "scope": 6153,
+            "src": "10520:67:14",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Get the `ReputationLogEntry` at index `_id`\n @param _id The reputation log members array index of the entry to get\n @return user The address of the user having their reputation changed by this log entry\n @return amount The amount by which the user's reputation is going to change\n @return skillId The skillId of the reputation being affected\n @return colony The address of the colony the reputation is being affected in\n @return nUpdates The number of updates this log entry implies (including updates to parents, children and colony-wide totals thereof)\n @return nPreviousUpdates The number of updates all previous entries in the log imply (including reputation decays, updates to parents, children, and colony-wide totals thereof)",
+            "id": 6142,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getReputationUpdateLogEntry",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6128,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6127,
+                  "name": "_id",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6142,
+                  "src": "11410:11:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6126,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "11410:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "11409:13:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6141,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6130,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6142,
+                  "src": "11444:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 6129,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "11444:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6132,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6142,
+                  "src": "11453:6:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int256",
+                    "typeString": "int256"
+                  },
+                  "typeName": {
+                    "id": 6131,
+                    "name": "int256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "11453:6:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_int256",
+                      "typeString": "int256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6134,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6142,
+                  "src": "11461:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6133,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "11461:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6136,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6142,
+                  "src": "11470:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 6135,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "11470:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6138,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6142,
+                  "src": "11479:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6137,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "11479:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6140,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6142,
+                  "src": "11488:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6139,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "11488:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "11443:53:14"
+            },
+            "scope": 6153,
+            "src": "11373:124:14",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Start the reputation log with the rewards for the stakers who backed the accepted new reputation root hash.\n @param stakers The array of stakers addresses to receive the reward.\n @param commonColonyAddress The address of the common colony, which the special mining skill is earned in\n @param reward The amount of reputation to be rewarded to each staker\n @dev Only callable by colonyNetwork\n @dev Note that the same address might be present multiple times in `stakers` - this is acceptable, and indicates the\n same address backed the same hash multiple times with different entries.",
+            "id": 6152,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "rewardStakersWithReputation",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6150,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6145,
+                  "name": "stakers",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6152,
+                  "src": "12165:17:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 6143,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "12165:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 6144,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "12165:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6147,
+                  "name": "commonColonyAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6152,
+                  "src": "12184:27:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 6146,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "12184:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6149,
+                  "name": "reward",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6152,
+                  "src": "12213:11:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6148,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "12213:4:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "12164:61:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6151,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "12232:0:14"
+            },
+            "scope": 6153,
+            "src": "12128:105:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 6154,
+        "src": "757:11478:14"
+      }
+    ],
+    "src": "700:11536:14"
+  },
+  "legacyAST": {
+    "absolutePath": "/root/intuition-machine/colonyNetwork/contracts/IReputationMiningCycle.sol",
+    "exportedSymbols": {
+      "IReputationMiningCycle": [
+        6153
+      ]
+    },
+    "id": 6154,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 5978,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".23"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "700:24:14"
+      },
+      {
+        "id": 5979,
+        "literals": [
+          "experimental",
+          "v0.5.0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "725:29:14"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 6153,
+        "linearizedBaseContracts": [
+          6153
+        ],
+        "name": "IReputationMiningCycle",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": "@notice The getter generated by solidity for the disputeRounds mapping of array of dispute rounds.\n @param round The dispute round to query\n @param index The index in the dispute round to query\n @return The elements of the Submission struct for the submission requested. See ReputationMiningCycle.sol for the full description",
+            "id": 6008,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "disputeRounds",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 5984,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5981,
+                  "name": "round",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1164:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5980,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1164:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5983,
+                  "name": "index",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1179:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5982,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1179:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1163:30:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6007,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 5986,
+                  "name": "proposedNewRootHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1215:27:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 5985,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1215:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5988,
+                  "name": "nNodes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1244:14:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5987,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1244:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5990,
+                  "name": "lastResponseTimestamp",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1260:29:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5989,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1260:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5992,
+                  "name": "challengeStepCompleted",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1291:30:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5991,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1291:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5994,
+                  "name": "jrh",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1323:11:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 5993,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1323:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5996,
+                  "name": "intermediateReputationHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1336:34:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 5995,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1336:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 5998,
+                  "name": "intermediateReputationNNodes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1372:36:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5997,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1372:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6000,
+                  "name": "jrhNnodes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1410:17:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 5999,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1410:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6002,
+                  "name": "lowerBound",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1429:18:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6001,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1429:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6004,
+                  "name": "upperBound",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1449:18:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6003,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1449:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6006,
+                  "name": "providedPreviousReputationUID",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6008,
+                  "src": "1469:37:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6005,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1469:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1214:293:14"
+            },
+            "scope": 6153,
+            "src": "1141:367:14",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Get the hash for the corresponding entry.\n @param submitter The address that submitted the hash\n @param entryIndex The index of the entry that they used to submit the hash\n @param newHash The hash that they submitted",
+            "id": 6019,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getEntryHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6015,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6010,
+                  "name": "submitter",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6019,
+                  "src": "1780:17:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 6009,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1780:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6012,
+                  "name": "entryIndex",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6019,
+                  "src": "1799:18:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6011,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1799:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6014,
+                  "name": "newHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6019,
+                  "src": "1819:15:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 6013,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1819:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1779:56:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6018,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6017,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6019,
+                  "src": "1857:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 6016,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1857:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1856:9:14"
+            },
+            "scope": 6153,
+            "src": "1758:108:14",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Resets the timestamp that the submission window opens to `now`\n @dev only allowed to be called by ColonyNetwork",
+            "id": 6022,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "resetWindow",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6020,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2021:2:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6021,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2030:0:14"
+            },
+            "scope": 6153,
+            "src": "2001:30:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Submit a new reputation root hash\n @param newHash The proposed new reputation root hash\n @param nNodes Number of nodes in tree with root `newHash`\n @param entryIndex The entry number for the given `newHash` and `nNodes`",
+            "id": 6031,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "submitRootHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6029,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6024,
+                  "name": "newHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6031,
+                  "src": "2308:15:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 6023,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2308:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6026,
+                  "name": "nNodes",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6031,
+                  "src": "2325:14:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6025,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2325:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6028,
+                  "name": "entryIndex",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6031,
+                  "src": "2341:18:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6027,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2341:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2307:53:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6030,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2367:0:14"
+            },
+            "scope": 6153,
+            "src": "2284:84:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Confirm a new reputation hash. The hash in question is either the only one that was submitted this cycle,\n or the last one standing after all others have been proved wrong.\n @param roundNumber The round number that the hash being confirmed is in as the only contendender. If only one hash was submitted, then this is zero.",
+            "id": 6036,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "confirmNewHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6034,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6033,
+                  "name": "roundNumber",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6036,
+                  "src": "2743:19:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6032,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2743:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2742:21:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6035,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2770:0:14"
+            },
+            "scope": 6153,
+            "src": "2719:52:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Invalidate a hash that has timed out relative to its opponent its current challenge step. Note that this can be called to 'invalidate'\n a nonexistent hash, if the round has an odd number of entrants and so the last hash is being given a bye to the next round.\n @param round The round number the hash being invalidated is in\n @param idx The index in the round that the hash being invalidated is in",
+            "id": 6043,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "invalidateHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6041,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6038,
+                  "name": "round",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6043,
+                  "src": "3225:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6037,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3225:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6040,
+                  "name": "idx",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6043,
+                  "src": "3240:11:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6039,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3240:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3224:28:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6042,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3259:0:14"
+            },
+            "scope": 6153,
+            "src": "3201:59:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Respond to a binary search step, to eventually discover where two submitted hashes differ in their Justification trees.\n @param round The round number the hash we are responding on behalf of is in\n @param idx The index in the round that the hash we are responding on behalf of is in\n @param jhIntermediateValue The contents of the Justification Tree at the key given by `targetNode` (see function description). The value of `targetNode` is computed locally to establish what to submit to this function.\n @param branchMask The branchMask of the Merkle proof that `jhIntermediateValue` is the value at key `targetNode`\n @param siblings The siblings of the Merkle proof that `jhIntermediateValue` is the value at key `targetNode`",
+            "id": 6057,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "respondToBinarySearchForChallenge",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6055,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6045,
+                  "name": "round",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6057,
+                  "src": "4073:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6044,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4073:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6047,
+                  "name": "idx",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6057,
+                  "src": "4088:11:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6046,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4088:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6049,
+                  "name": "jhIntermediateValue",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6057,
+                  "src": "4101:25:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 6048,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4101:5:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6051,
+                  "name": "branchMask",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6057,
+                  "src": "4128:15:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6050,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4128:4:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6054,
+                  "name": "siblings",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6057,
+                  "src": "4145:18:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 6052,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "4145:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 6053,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "4145:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4072:92:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6056,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "4171:0:14"
+            },
+            "scope": 6153,
+            "src": "4030:142:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Respond to challenge, to establish which (if either) of the two submissions facing off are correct.\n @param u A `uint256[9]` array. The elements of this array, in order are:\n * 1. The current round of the hash being responded on behalf of\n * 2. The current index in the round of the hash being responded on behalf of\n * 3. The branchMask of the proof that the reputation is in the reputation state tree for the reputation with the disputed change\n * 4. The number of nodes in the last reputation state that both submitted hashes agree on\n * 5. The branchMask of the proof that the last reputation state the submitted hashes agreed on is in this submitted hash's justification tree\n * 6. The number of nodes this hash considers to be present in the first reputation state the two hashes in this challenge disagree on\n * 7. The branchMask of the proof that reputation root hash of the first reputation state the two hashes in this challenge disagree on is in this submitted hash's justification tree\n * 8. The branchMask of the proof for the most recently added reputation state in this hash's state tree in the last reputation state the two hashes in this challenge agreed on\n * 9. A dummy variable that should be set to 0. If nonzero, transaction will still work but be slightly more expensive. For an explanation of why this is present, look at the corresponding solidity code.\n @param _reputationKey The key of the reputation being changed that the disagreement is over.\n @param reputationSiblings The siblings of the Merkle proof that the reputation corresponding to `_reputationKey` is in the reputation state before and after the disagreement\n @param agreeStateReputationValue The value of the reputation at key `_reputationKey` in the last reputation state the submitted hashes agreed on\n @param agreeStateSiblings The siblings of the Merkle proof that the last reputation state the submitted hashes agreed on is in this submitted hash's justification tree\n @param disagreeStateReputationValue The value of the reputation at key `_reputationKey` in the first reputation state the submitted hashes disagree on\n @param disagreeStateSiblings The siblings of the Merkle proof that the first reputation state the submitted hashes disagreed on is in this submitted hash's justification tree\n @param previousNewReputationKey The key of the newest reputation added to the reputation tree in the last reputation state the submitted hashes agree on\n @param previousNewReputationValue The value of the newest reputation added to the reputation tree in the last reputation state the submitted hashes agree on\n @param previousNewReputationSiblings The siblings of the Merkle proof of the newest reputation added to the reputation tree in the last reputation state the submitted hashes agree on\n @dev If you know that the disagreement doesn't involve a new reputation being added, the arguments corresponding to the previous new reputation can be zeroed, as they will not be used. You must be sure\n that this is the case, however, otherwise you risk being found incorrect. Zeroed arguments will result in a cheaper call to this function.",
+            "id": 6086,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "respondToChallenge",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6084,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6061,
+                  "name": "u",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6086,
+                  "src": "7458:12:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_uint256_$9_memory_ptr",
+                    "typeString": "uint256[9]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 6058,
+                      "name": "uint256",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "7458:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 6060,
+                    "length": {
+                      "argumentTypes": null,
+                      "hexValue": "39",
+                      "id": 6059,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "7466:1:14",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": null,
+                        "typeString": null
+                      },
+                      "value": "9"
+                    },
+                    "nodeType": "ArrayTypeName",
+                    "src": "7458:10:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_uint256_$9_storage_ptr",
+                      "typeString": "uint256[9]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6063,
+                  "name": "_reputationKey",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6086,
+                  "src": "7529:20:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 6062,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "7529:5:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6066,
+                  "name": "reputationSiblings",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6086,
+                  "src": "7555:28:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 6064,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "7555:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 6065,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "7555:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6068,
+                  "name": "agreeStateReputationValue",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6086,
+                  "src": "7589:31:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 6067,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "7589:5:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6071,
+                  "name": "agreeStateSiblings",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6086,
+                  "src": "7626:28:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 6069,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "7626:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 6070,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "7626:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6073,
+                  "name": "disagreeStateReputationValue",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6086,
+                  "src": "7660:34:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 6072,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "7660:5:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6076,
+                  "name": "disagreeStateSiblings",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6086,
+                  "src": "7700:31:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 6074,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "7700:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 6075,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "7700:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6078,
+                  "name": "previousNewReputationKey",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6086,
+                  "src": "7737:30:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 6077,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "7737:5:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6080,
+                  "name": "previousNewReputationValue",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6086,
+                  "src": "7773:32:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 6079,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "7773:5:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6083,
+                  "name": "previousNewReputationSiblings",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6086,
+                  "src": "7811:39:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 6081,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "7811:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 6082,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "7811:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "7452:399:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6085,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "7858:0:14"
+            },
+            "scope": 6153,
+            "src": "7425:434:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Submit the Justification Root Hash (JRH) for a submitted reputation hash.\n @param round The round that the hash is currently in.\n @param index The index in the round that the hash is currently in\n @param jrh The JRH being submitted\n @param branchMask1 The branchmask for the Merkle proof that the currently accepted reputation state (given by `ColonyNetwork.getReputationRootHash()` + `ColonyNetwork.getReputationRootHashNNodes()`, where `+` is concatenation) is at key 0x000..000 in the submitted JRH\n @param siblings1 The siblings for the same Merkle proof\n @param branchMask2 The branchmask for the Merkle proof that the proposed new reputation state is at the key corresponding to the number of transactions expected in this update in the submitted JRH. This key should be the number of decay transactions plus the number of transactions the log indicates are to happen.\n @param siblings2 The siblings for the same Merkle proof\n @dev The majority of calls to this function will have `round` equal to `0`. The exception to this is when a submitted hash is given a bye, in which case `round` will be nonzero.\n @dev Note that it is possible for this function to be required to be called in every round - the hash getting the bye can wait until they will also be awarded the bye in the next round, if\n one is going to exist. There is an incentive to do so from a gas-cost perspective, but they don't know for sure there's going to be a bye until the submission window has expired, so I think\n this is okay.",
+            "id": 6105,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "submitJustificationRootHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6103,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6088,
+                  "name": "round",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6105,
+                  "src": "9481:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6087,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "9481:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6090,
+                  "name": "index",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6105,
+                  "src": "9500:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6089,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "9500:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6092,
+                  "name": "jrh",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6105,
+                  "src": "9519:11:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 6091,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "9519:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6094,
+                  "name": "branchMask1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6105,
+                  "src": "9536:16:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6093,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "9536:4:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6097,
+                  "name": "siblings1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6105,
+                  "src": "9558:19:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 6095,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "9558:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 6096,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "9558:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6099,
+                  "name": "branchMask2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6105,
+                  "src": "9583:16:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6098,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "9583:4:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6102,
+                  "name": "siblings2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6105,
+                  "src": "9605:19:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_bytes32_$dyn_memory_ptr",
+                    "typeString": "bytes32[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 6100,
+                      "name": "bytes32",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "9605:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "id": 6101,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "9605:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_bytes32_$dyn_storage_ptr",
+                      "typeString": "bytes32[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "9475:150:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6104,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "9632:0:14"
+            },
+            "scope": 6153,
+            "src": "9439:194:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Add a new entry to the reputation update log\n @param _user The address of the user having their reputation changed by this log entry\n @param _amount The amount by which the user's reputation is going to change. Can be positive or negative\n @param _skillId The skillId of the reputation being affected\n @param _colonyAddress The address of the colony the reputation is being affected in\n @param _nParents The number of parent skills the skill defined by the skillId has\n @param _nChildren The number of child skills the skill defined by the skillId has",
+            "id": 6120,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "appendReputationUpdateLog",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6118,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6107,
+                  "name": "_user",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6120,
+                  "src": "10268:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 6106,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "10268:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6109,
+                  "name": "_amount",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6120,
+                  "src": "10283:11:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int256",
+                    "typeString": "int256"
+                  },
+                  "typeName": {
+                    "id": 6108,
+                    "name": "int",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "10283:3:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_int256",
+                      "typeString": "int256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6111,
+                  "name": "_skillId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6120,
+                  "src": "10296:13:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6110,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "10296:4:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6113,
+                  "name": "_colonyAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6120,
+                  "src": "10311:22:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 6112,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "10311:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6115,
+                  "name": "_nParents",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6120,
+                  "src": "10335:14:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6114,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "10335:4:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6117,
+                  "name": "_nChildren",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6120,
+                  "src": "10351:15:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6116,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "10351:4:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "10267:100:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6119,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "10374:0:14"
+            },
+            "scope": 6153,
+            "src": "10233:142:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Get the length of the ReputationUpdateLog stored on this instance of the ReputationMiningCycle contract\n @return nUpdates",
+            "id": 6125,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getReputationUpdateLogLength",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6121,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "10557:2:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6124,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6123,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6125,
+                  "src": "10581:4:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6122,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "10581:4:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "10580:6:14"
+            },
+            "scope": 6153,
+            "src": "10520:67:14",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Get the `ReputationLogEntry` at index `_id`\n @param _id The reputation log members array index of the entry to get\n @return user The address of the user having their reputation changed by this log entry\n @return amount The amount by which the user's reputation is going to change\n @return skillId The skillId of the reputation being affected\n @return colony The address of the colony the reputation is being affected in\n @return nUpdates The number of updates this log entry implies (including updates to parents, children and colony-wide totals thereof)\n @return nPreviousUpdates The number of updates all previous entries in the log imply (including reputation decays, updates to parents, children, and colony-wide totals thereof)",
+            "id": 6142,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getReputationUpdateLogEntry",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6128,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6127,
+                  "name": "_id",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6142,
+                  "src": "11410:11:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6126,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "11410:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "11409:13:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6141,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6130,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6142,
+                  "src": "11444:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 6129,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "11444:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6132,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6142,
+                  "src": "11453:6:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int256",
+                    "typeString": "int256"
+                  },
+                  "typeName": {
+                    "id": 6131,
+                    "name": "int256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "11453:6:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_int256",
+                      "typeString": "int256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6134,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6142,
+                  "src": "11461:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6133,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "11461:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6136,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6142,
+                  "src": "11470:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 6135,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "11470:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6138,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6142,
+                  "src": "11479:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6137,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "11479:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6140,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6142,
+                  "src": "11488:7:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6139,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "11488:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "11443:53:14"
+            },
+            "scope": 6153,
+            "src": "11373:124:14",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": null,
+            "documentation": "@notice Start the reputation log with the rewards for the stakers who backed the accepted new reputation root hash.\n @param stakers The array of stakers addresses to receive the reward.\n @param commonColonyAddress The address of the common colony, which the special mining skill is earned in\n @param reward The amount of reputation to be rewarded to each staker\n @dev Only callable by colonyNetwork\n @dev Note that the same address might be present multiple times in `stakers` - this is acceptable, and indicates the\n same address backed the same hash multiple times with different entries.",
+            "id": 6152,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "rewardStakersWithReputation",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 6150,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 6145,
+                  "name": "stakers",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6152,
+                  "src": "12165:17:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
+                    "typeString": "address[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 6143,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "12165:7:14",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 6144,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "12165:9:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
+                      "typeString": "address[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6147,
+                  "name": "commonColonyAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6152,
+                  "src": "12184:27:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 6146,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "12184:7:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 6149,
+                  "name": "reward",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 6152,
+                  "src": "12213:11:14",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 6148,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "12213:4:14",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "12164:61:14"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 6151,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "12232:0:14"
+            },
+            "scope": 6153,
+            "src": "12128:105:14",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 6154,
+        "src": "757:11478:14"
+      }
+    ],
+    "src": "700:11536:14"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-06-20T09:03:15.157Z"
+}
