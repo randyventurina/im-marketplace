@@ -47,3 +47,4 @@ let getWeb3 = new Promise(function(resolve, reject) {
 })
 
 export default getWeb3
+ 

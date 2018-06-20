@@ -46,3 +46,4 @@ export function signUpUser(history, name) {
     console.error('Web3 is not initialized.');
   }
 }
+ 

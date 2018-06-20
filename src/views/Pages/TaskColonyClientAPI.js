@@ -164,4 +164,4 @@ export const colony_CompleteTask = () => {
   //   //   display(file.Hash); 
   //   // });
   // });
-//}
+//} 

@@ -14,7 +14,7 @@ export  function createTask(history, title, description) {
       const { eventData: { taskId } } = await colonyClient.createTask.send({ specificationHash: task_hash, domainId: 1, });
       console.log("taskid" + taskId);
       debugger;
-      
+       
     }
   } else {
     console.error('Web3 or colony is not initialized.');

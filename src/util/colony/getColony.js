@@ -64,5 +64,5 @@ let getColony =  new Promise(async (resolve, reject) => {
 
     });
 });
-
+ 
 export default getColony;

@@ -66,3 +66,4 @@ export function loginUser(history) {
     console.error('Web3 is not initialized.');
   }
 }
+ 
